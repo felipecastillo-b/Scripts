@@ -21,7 +21,8 @@ xfce4-terminal --geometry 80x20 -e "bash -c '
 
 	# proyectos enumerados
 	for i in \"\${!projects[@]}\"; do
-		echo \"\$((i+1)). \${projects[\$i]}\";
+		folder_name=\$(basename \"\${projects[\$i]}\");
+		echo \"\$((i+1)). \$folder_name\";
 	done;
 
 	# seleccionar proyecto
