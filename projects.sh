@@ -11,7 +11,8 @@ fi
 
 # lista los proyectos y los enumera
 xfce4-terminal --geometry 80x20 -e "bash -c '
-	echo \"Lista de proyectos:\";
+	echo -e \"\\e[1;35mLista de proyectos:\\e[0m\";
+	echo "";
 	projects=(\"$DIRECTORIO\"*/);
 	if [ \${#projects[@]} -eq 0 ]; then
 		echo \"No hay proyectos en $DIRECTORIO\";
@@ -22,11 +23,13 @@ xfce4-terminal --geometry 80x20 -e "bash -c '
 	# proyectos enumerados
 	for i in \"\${!projects[@]}\"; do
 		folder_name=\$(basename \"\${projects[\$i]}\");
-		echo \"\$((i+1)). \$folder_name\";
+		echo -e \"    \\e[95m\$((i+1)).\\e[0m \$folder_name\";
 	done;
 
 	# seleccionar proyecto
-	read -p \"Seleccionar Proyecto (1-\${#projects[@]}): \" selection;
+	echo "";
+	echo -e \"\\e[1;35mSeleccionar Proyecto (1-\${#projects[@]}): \\e[0m\";
+	read selection;
 
 	# validar seleccion
 	if [[ ! \"\$selection\" =~ ^[0-9]+\$ ]] || (( selection < 1 || selection > \${#projects[@]} )); then
