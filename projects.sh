@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # directorio de proyectos
-DIRECTORIO=~/Documentos/projects/
+DIRECTORIO=~/Documents/projects/
 
 # verifica si existe el directorio
 if [ ! -d "$DIRECTORIO" ]; then
