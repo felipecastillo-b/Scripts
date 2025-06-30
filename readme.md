@@ -5,6 +5,7 @@ This is a collection of scripts made in Shell to automate tasks, opening files, 
 ## List of Scripts
 
 - **[projects.sh](#projects-sh)**: `List Projects in a specific Folder and Open the Code Editor.`
+- **[sync-obsidian.sh](#sync-obsidian-sh)**: `Other Script.`
 - **[script.sh](#script-sh)**: `Other Script.`
 
 ## Add Script to Application Browser
@@ -26,7 +27,7 @@ This is a collection of scripts made in Shell to automate tasks, opening files, 
 ## Scripts
 
 <a id="projects-sh"></a>
-### projects.sh
+## projects.sh
 
 
 List Projects/Repositories in a specific Folder and Open the Code Editor or IDE.  
@@ -58,11 +59,85 @@ code \"\$selected_project\";
 
 ---
 
+<a id="sync-obsidian-sh"></a>
+## sync-obsidian.sh
+
+Shell script to automatically sync an Obsidian vault with a Git remote repository.
+
+### Features
+
+- Automatic commit and push of changes
+- Pull before push to avoid conflicts
+- Internet connection check
+- Retry mechanism for failed pushes
+- Detailed logging system
+- Designed to run via cron job
+
+### Installation
+
+1. Clone or copy the script to your preferred location
+2. Make the script executable:
+   ```bash
+   chmod +x sync-obsidian.sh
+   ```
+
+### Configuration
+
+ - Edit these variables at the top of the script:
+
+    ```bash
+    REPO_DIR="$HOME/Documents/Obsidian Vault"  # Local Obsidian vault path
+    REMOTE="origin"                            # Git remote name
+    BRANCH="main"                              # Git branch to sync with
+    MAX_RETRIES=3                              # Number of push retry attempts
+    LOG_DIR="$HOME/.logs/sync-obsidian"        # Log directory path
+    ```
+
+### Usage
+
+ - Manual Execution
+
+    ```bash
+    ./sync-obsidian.sh
+    ```
+
+### Automated Execution (via Cron)
+
+ - Add to your crontab (e.g., to run every 15 minutes):
+
+    ```bash
+    */30 * * * * /path/to/sync-obsidian.sh >/dev/null 2>&1
+    ```
+
+### Logs
+
+ - Logs are stored in:
+
+    ```bash
+    $HOME/.logs/sync-obsidian/
+    sync-obsidian.log: General execution log
+    ```
+
+### Requirements
+
+ - Git installed and configured
+ - Obsidian vault initialized as Git repository
+ - Remote repository properly set up
+ - Internet connection for sync operations
+
+### Error Handling
+
+ - Connection checks before attempting sync
+ - Automatic conflict resolution (pull before push)
+ - Multiple retry attempts for failed pushes
+ - Comprehensive logging
+
+### Other Script. 
+
+---
+
 <a id="script-sh"></a>
 ### script.sh
-
-
-Other Script. 
 
 **Change for your use**
 
