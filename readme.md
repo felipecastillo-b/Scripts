@@ -5,7 +5,7 @@ This is a collection of scripts made in Shell to automate tasks, opening files, 
 ## List of Scripts
 
 - **[projects.sh](#projects-sh)**: `List Projects in a specific Folder and Open the Code Editor.`
-- **[sync-obsidian.sh](#sync-obsidian-sh)**: `Other Script.`
+- **[sync-obsidian.sh](#sync-obsidian-sh)**: `Sync an Obsidian vault with a Git remote repository.`
 - **[script.sh](#script-sh)**: `Other Script.`
 
 ## Add Script to Application Browser
