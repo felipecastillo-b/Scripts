@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO_DIR="$HOME/Documents/Obsidian Vault"  # Repo Local
+REPO_DIR="$HOME/Documents/Obsidian-Vault"  # Repo Local
 REMOTE="origin"                            # Repo Remoto
 BRANCH="main"                              # Rama principal
 MAX_RETRIES=2                              # Reintentos antes de fallar
