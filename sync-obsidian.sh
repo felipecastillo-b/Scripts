@@ -23,8 +23,8 @@ check_online() {
 sync_repo() {
     cd "$REPO_DIR" || { log "Error: Directorio no encontrado"; return 1; }
 
-    # Verifica cambios locales
-    if git diff-index --quiet HEAD -- 2>/dev/null; then
+    # Verifica cambios locales (incluyendo archivos nuevos/no rastreados)
+    if [[ -z "$(git status --porcelain)" ]]; then
         log "Sin cambios locales"
         return 0
     fi
